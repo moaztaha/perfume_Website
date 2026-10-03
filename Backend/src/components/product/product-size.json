@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_product_product_sizes",
+  "info": {
+    "displayName": "product-size"
+  },
+  "options": {},
+  "attributes": {
+    "size": {
+      "type": "string"
+    },
+    "price": {
+      "type": "integer"
+    }
+  },
+  "config": {}
+}
