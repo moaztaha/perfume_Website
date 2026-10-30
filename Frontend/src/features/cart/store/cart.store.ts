@@ -27,7 +27,6 @@ export const useCartStore = create<CartStore>()(
           const existing = state.lines.find((line) => line.id === id);
 
           if (existing) {
-            // Silently update quantity without toast
             return {
               lines: state.lines.map((line) =>
                 line.id === id ? { ...line, quantity: line.quantity + 1 } : line,
@@ -56,7 +55,7 @@ export const useCartStore = create<CartStore>()(
         }),
       increment: (lineId) =>
         set((state) => {
-          // Silently update quantity without toast
+          
           return {
             lines: state.lines.map((line) =>
               line.id === lineId ? { ...line, quantity: line.quantity + 1 } : line,
@@ -76,7 +75,7 @@ export const useCartStore = create<CartStore>()(
               if (line.id !== lineId) {
                 return line;
               }
-              // Don't allow quantity to go below 1
+             
               if (line.quantity <= 1) {
                 return line;
               }
@@ -86,7 +85,7 @@ export const useCartStore = create<CartStore>()(
         }),
     }),
     {
-      name: "odoratus-cart-storage", // unique name for localStorage key
+      name: "odoratus-cart-storage", // 
       storage: createJSONStorage(() => localStorage),
     }
   )

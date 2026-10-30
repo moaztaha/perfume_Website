@@ -7,7 +7,6 @@ type ProductDetailsProps = {
   children?: React.ReactNode;
 };
 
-/** US-04: product header information (tags, title, price, status). */
 export function ProductDetailsHeader({
   product,
   currentPrice,
@@ -53,7 +52,6 @@ export function ProductDetailsHeader({
   );
 }
 
-/** US-04: Scent Anatomy narrative and notes pyramid. */
 export function ProductScentAnatomy({ product }: { product: Product }) {
   const pyramid = product.notesPyramid ?? {
     top: "Sicilian Bergamot, Pink Pepper",
@@ -70,7 +68,6 @@ export function ProductScentAnatomy({ product }: { product: Product }) {
         {product.description}
       </p>
 
-      {/* Notes Pyramid Table */}
       <div className="divide-y divide-[#ebe6de] border-t border-b border-[#ebe6de] pt-1">
         {pyramid.top && (
           <div className="flex items-center justify-between py-2.5">
@@ -95,7 +92,7 @@ export function ProductScentAnatomy({ product }: { product: Product }) {
   );
 }
 
-/** Combined ProductDetails component. */
+/**  ProductDetails component. */
 export function ProductDetails({
   product,
   currentPrice,

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { ProductDetailsWithCart } from "@/app/shop/[productId]/product-details-with-cart";
 import { productsService } from "@/features/products/services/products.service";
+import { ProductDetailsWithCart } from "./product-details-with-cart";
 
 type ProductDetailsProps = {
   params: Promise<{ productId: string }>;

@@ -39,7 +39,6 @@ export function ProductDetailsPage({
   const [giftWrapping, setGiftWrapping] = useState<boolean>(false);
   const [quantity, setQuantity] = useState<number>(1);
 
-  // Determine current volume and unit price based on selection
   const { selectedVolume, currentPrice } = useMemo(() => {
     if (!product) {
       return { selectedVolume: "100 ml", currentPrice: 0 };
@@ -66,7 +65,6 @@ export function ProductDetailsPage({
 
   const totalPrice = currentPrice * quantity;
 
-  // Combine options including volume and gift wrapping for cart storage
   const resolvedOptions = useMemo(() => {
     if (!product) {
       return selectedOptions;
@@ -108,7 +106,7 @@ export function ProductDetailsPage({
       {/* Breadcrumb Trail */}
       <ProductBreadcrumbs productName={product.name} />
 
-      {/* Main Product Details View */}
+      {/*  Product Details View */}
       <section className="mx-auto w-full max-w-7xl px-4 py-4 sm:px-6 md:px-10 lg:px-20 lg:py-8">
         <div className="grid gap-10 lg:grid-cols-2 lg:gap-16 items-start">
           {/* Left Column: Gallery */}
@@ -162,7 +160,6 @@ export function ProductDetailsPage({
                 </button>
               </div>
 
-              {/* Primary Action Button */}
               {actions ? (
                 actions({
                   product,
@@ -189,7 +186,6 @@ export function ProductDetailsPage({
         </div>
       </section>
 
-      {/* Related Products: Olfactory Companions */}
       <ProductCompanions currentProductId={product.id} category={product.category} />
     </div>
   );

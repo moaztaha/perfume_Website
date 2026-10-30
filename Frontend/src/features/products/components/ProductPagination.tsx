@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
 "use client";
 
 import { useRouter, useSearchParams } from "next/navigation";
@@ -21,7 +20,6 @@ export function ProductPagination({
   
   const pageCount = Math.max(1, Math.ceil(total / pageSize));
 
-  // Don't show pagination if there's only one page or no items
   if (pageCount <= 1) {
     return null;
   }

@@ -12,7 +12,7 @@ type ProductOptionsProps = {
   onToggleGiftWrapping?: (enabled: boolean) => void;
 };
 
-/** US-04: luxury selectable product options matching Figma specifications. */
+/**  luxury selectable product options  */
 export function ProductOptions({
   product,
   selectedOptions,
@@ -20,7 +20,6 @@ export function ProductOptions({
   giftWrapping = false,
   onToggleGiftWrapping,
 }: ProductOptionsProps) {
-  // Volume options can come from product.volumeOptions or product.options (id: "volume")
   const volumeOptions =
     product.volumeOptions && product.volumeOptions.length > 0
       ? product.volumeOptions
@@ -40,7 +39,6 @@ export function ProductOptions({
   const currentVolume =
     selectedOptions["volume"] ?? volumeOptions[volumeOptions.length - 1]?.size ?? "100 ml";
 
-  // Other non-volume options if any
   const otherOptions = product.options.filter(
     (o) => o.id !== "volume" && o.name.toLowerCase() !== "volume",
   );
@@ -83,7 +81,7 @@ export function ProductOptions({
         </div>
       </div>
 
-      {/* Complimentary Signature Gift Wrapping */}
+      {/*  Gift Wrapping */}
       <div className="flex items-center justify-between gap-4 rounded-lg bg-[#f4f0eb] p-5">
         <div className="flex flex-col gap-1">
           <span className="text-[13px] font-semibold text-[#1a1a1a]">
@@ -111,7 +109,6 @@ export function ProductOptions({
         </button>
       </div>
 
-      {/* Other custom options if present */}
       {otherOptions.length > 0 && (
         <div className="space-y-3">
           {otherOptions.map((option) => (

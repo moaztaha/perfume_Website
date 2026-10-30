@@ -30,7 +30,7 @@ export type FooterLinks = {
   aboutUs: string[];
 };
 
-// Product data for the trending section (matching Figma design)
+// Product data for the trending section
 export const trendingProducts: TrendingProduct[] = [
   {
     id: "fleur-de-lune",
@@ -90,7 +90,7 @@ export const scentArchetypes: ScentArchetype[] = [
   },
 ];
 
-// Occasions data - IDs match exact Strapi occasion field values
+// Occasions data
 export const occasions: Occasion[] = [
   {
     id: "Wedding",

@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
+const MotionLink = motion.create(Link);
 import { productPaths } from "@/features/products/paths";
 import { AnimatedButton } from "@/components/animations";
 
@@ -35,22 +36,23 @@ export function HeroSection() {
           transition={{ duration: 0.8, delay: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
           className="text-[16px] leading-relaxed text-white/90"
         >
-          Ethereal extractions designed to evoke memory, stillness, and
-          elegant presence. Crafted with deliberate restraint in our Parisian
-          studio.
+          Ethereal extractions designed to evoke memory, stillness, and elegant
+          presence. Crafted with deliberate restraint in our Parisian studio.
         </motion.p>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
         >
-          <AnimatedButton
-            as={Link}
+          <MotionLink
             href={productPaths.list}
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+            transition={{ duration: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
             className="inline-flex w-fit items-center justify-center rounded bg-[#c5a880] px-10 py-[18px] text-[12px] font-bold uppercase tracking-wide text-white transition-colors hover:bg-[#b39770] cursor-pointer"
           >
             Explore The Collections
-          </AnimatedButton>
+          </MotionLink>
         </motion.div>
       </motion.div>
     </section>

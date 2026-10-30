@@ -11,19 +11,46 @@ export class ApiError extends Error {
 }
 
 /**
- * HTTP helper for Strapi and feature services.
+ * Get JWT token from auth storage (localStorage).
  */
+function getAuthToken(): string | null {
+  if (typeof window === "undefined") {
+    return null; 
+  }
+
+  try {
+    const authStorage = localStorage.getItem("auth-storage");
+    if (!authStorage) return null;
+
+    const parsed = JSON.parse(authStorage) as {
+      state?: { token?: string };
+    };
+
+    return parsed?.state?.token ?? null;
+  } catch {
+    return null;
+  }
+}
+
+
 export async function apiGet<T>(path: string, init?: RequestInit): Promise<T> {
   const baseUrl = env.apiBaseUrl || "http://localhost:1337";
   const normalizedPath = path.startsWith("/") ? path : `/${path}`;
   const url = `${baseUrl}${normalizedPath}`;
 
+  const token = getAuthToken();
+  const headers: Record<string, string> = {
+    Accept: "application/json",
+    ...(init?.headers as Record<string, string> | undefined),
+  };
+
+  if (token) {
+    headers.Authorization = `Bearer ${token}`;
+  }
+
   const response = await fetch(url, {
     ...init,
-    headers: {
-      Accept: "application/json",
-      ...init?.headers,
-    },
+    headers,
   });
 
   if (!response.ok) {
@@ -34,7 +61,6 @@ export async function apiGet<T>(path: string, init?: RequestInit): Promise<T> {
         details = ` - ${errJson.error.message}`;
       }
     } catch {
-      // Ignore JSON parse error on non-OK responses
     }
 
     throw new ApiError(

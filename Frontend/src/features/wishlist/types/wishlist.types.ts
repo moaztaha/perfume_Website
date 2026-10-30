@@ -4,5 +4,5 @@ export type WishlistItem = {
   name: string;
   price: number;
   image?: string;
-  addedAt: string; // ISO timestamp
+  addedAt: string; 
 };

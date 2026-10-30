@@ -6,15 +6,7 @@ import { cn } from "@/lib/utils/cn";
 import { parseProductListQuery } from "@/features/products/utils/product.utils";
 import { toast } from "@/lib/toast";
 
-/**
- * Product Filters Component
- * 
- * Maps UI filter labels to Strapi field names:
- * - Scent Family (UI) → category (Strapi relation field)
- * - Occasion (UI) → occasion (Strapi string field)
- * - Gender (UI) → gender (Strapi string field)
- * - Price Range (UI) → price (Strapi integer field)
- */
+
 
 export type FilterOption = {
   id: string;
@@ -23,7 +15,7 @@ export type FilterOption = {
 
 type CheckboxTone = "gold" | "ink";
 
-// Scent Family options (maps to Strapi category.name)
+// Scent Family options 
 const SCENT_FAMILIES: FilterOption[] = [
   { id: "woody", label: "Woody" },
   { id: "fresh", label: "Fresh" },
@@ -31,7 +23,7 @@ const SCENT_FAMILIES: FilterOption[] = [
   { id: "oriental", label: "Oriental" },
 ];
 
-// Occasion options (maps to Strapi occasion field)
+// Occasion options 
 const OCCASIONS: FilterOption[] = [
   { id: "wedding", label: "Wedding" },
   { id: "personal-use", label: "Personal Use" },
@@ -39,7 +31,7 @@ const OCCASIONS: FilterOption[] = [
   { id: "gift-sets", label: "Gift Sets" },
 ];
 
-// Gender options (maps to Strapi gender field)
+// Gender options 
 const GENDERS: FilterOption[] = [
   { id: "men", label: "Men" },
   { id: "women", label: "Women" },
@@ -139,7 +131,7 @@ export function ProductFilters() {
     Object.fromEntries(searchParams.entries()),
   );
 
-  // Scent Family → maps to Strapi `category` relation
+  // Scent Family 
   const urlScentFamilies = currentQuery.category
     ? currentQuery.category.split(",").map((s) => s.trim().toLowerCase())
     : [];
@@ -152,8 +144,8 @@ export function ProductFilters() {
   const urlMinPrice = currentQuery.minPrice ?? MIN_PRICE;
   const urlMaxPrice = currentQuery.maxPrice ?? MAX_PRICE;
 
-  // Local price state — slider updates visually while dragging;
-  // the URL (and page re-fetch) is only committed on pointer-up.
+  //  price state 
+
   const [localMinPrice, setLocalMinPrice] = useState(urlMinPrice);
   const [localMaxPrice, setLocalMaxPrice] = useState(urlMaxPrice);
 
@@ -169,11 +161,10 @@ export function ProductFilters() {
     }
     merged.page = "1";
     const qs = new URLSearchParams(merged).toString();
-    // scroll: false keeps the current scroll position when filters change
     router.replace(`/shop${qs ? `?${qs}` : ""}`, { scroll: false });
   };
 
-  // Scent Family → writes to `category` URL param (Strapi category field)
+  // Scent Family 
   const handleScentFamilyToggle = (id: string) => {
     const next = toggleValue(urlScentFamilies, id);
     updateFilters({ category: next.length > 0 ? next.join(",") : undefined });
@@ -225,7 +216,7 @@ export function ProductFilters() {
         onClick={() => setOpen((current) => !current)}
       >
         <span>Filters{selectedCount > 0 ? ` (${selectedCount})` : ""}</span>
-        {/* eslint-disable-next-line @next/next/no-img-element */}
+        
         <img
           src="/icons/chevron-down.svg"
           alt=""
@@ -290,7 +281,7 @@ export function ProductFilters() {
                   width: `${maxPricePercent - minPricePercent}%`,
                 }}
               />
-              {/* Min price slider */}
+              {/* price slider */}
               <input
                 type="range"
                 min={MIN_PRICE}

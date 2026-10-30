@@ -1,11 +1,6 @@
-/**
- * Motion configuration that respects prefers-reduced-motion
- * Use this in framer-motion components to automatically disable animations
- * when the user has reduced motion preferences enabled
- */
+
 
 export const motionConfig = {
-  // Respect prefers-reduced-motion media query
   respectReducedMotion: true,
 };
 

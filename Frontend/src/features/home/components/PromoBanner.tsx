@@ -24,6 +24,8 @@ export function PromoBanner() {
               src="/images/banner.png"
               alt="Le Jardin d'Or Solstice Collection"
               fill
+              sizes="(max-width: 1280px) 100vw, 1280px"
+
               className="object-cover transition-transform duration-700 hover:scale-105"
               priority
             />
@@ -34,7 +36,11 @@ export function PromoBanner() {
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
+              transition={{
+                duration: 0.5,
+                delay: 0.2,
+                ease: [0.25, 0.1, 0.25, 1],
+              }}
               className="text-[11px] font-bold uppercase text-[#c5a880]"
             >
               The Summer Solstice
@@ -44,7 +50,11 @@ export function PromoBanner() {
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
+              transition={{
+                duration: 0.5,
+                delay: 0.3,
+                ease: [0.25, 0.1, 0.25, 1],
+              }}
               className="font-[family-name:var(--font-instrument-serif)] text-[40px] leading-tight text-[#1a1a1a] sm:text-[54px]"
             >
               Le Jardin d&apos;Or Solstice Collection
@@ -54,7 +64,11 @@ export function PromoBanner() {
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
+              transition={{
+                duration: 0.5,
+                delay: 0.4,
+                ease: [0.25, 0.1, 0.25, 1],
+              }}
               className="text-[14px] leading-relaxed text-[#605a54]"
             >
               Our highly anticipated limited reserve capturing the fleeting
@@ -66,7 +80,11 @@ export function PromoBanner() {
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
+              transition={{
+                duration: 0.5,
+                delay: 0.5,
+                ease: [0.25, 0.1, 0.25, 1],
+              }}
             >
               <AnimatedButton
                 type="button"

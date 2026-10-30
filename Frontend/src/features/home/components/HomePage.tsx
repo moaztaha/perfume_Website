@@ -9,13 +9,11 @@ import {
   OccasionsSection,
   PromoBanner,
   NewsletterSection,
-  Footer,
 } from "@/features/home/components";
 import {
   trendingProducts,
   scentArchetypes,
   occasions,
-  footerLinks,
 } from "@/features/home/data/home-sections.data";
 
 type HomePageProps = {
@@ -56,7 +54,6 @@ export function HomePage({
       <OccasionsSection occasions={occasions} />
       <PromoBanner />
       <NewsletterSection />
-      <Footer links={footerLinks} />
     </div>
   );
 }

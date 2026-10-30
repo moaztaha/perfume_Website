@@ -69,7 +69,7 @@ export const useWishlistStore = create<WishlistStore>()(
         }),
     }),
     {
-      name: "odoratus-wishlist-storage", // unique name for localStorage key
+      name: "odoratus-wishlist-storage", 
       storage: createJSONStorage(() => localStorage),
     }
   )

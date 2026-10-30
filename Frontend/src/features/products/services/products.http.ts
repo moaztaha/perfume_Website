@@ -15,9 +15,7 @@ import {
   mapStrapiProjectToProduct,
 } from "@/features/products/utils/strapi-mapper";
 
-/**
- * HTTP catalog client integrating Next.js with Strapi 5 REST API.
- */
+
 export const httpProductsService: ProductsService = {
   async list(query: ProductListQuery): Promise<ProductListResult> {
     const queryString = buildStrapiProjectsQuery(query);
@@ -41,7 +39,6 @@ export const httpProductsService: ProductsService = {
   async getById(id: ProductId): Promise<Product | null> {
     if (!id) return null;
 
-    // 1. Try direct fetch by documentId
     try {
       const res = await apiGet<StrapiResponse<StrapiProject>>(
         `/api/projects/${encodeURIComponent(id)}?populate=*`,
@@ -50,10 +47,9 @@ export const httpProductsService: ProductsService = {
         return mapStrapiProjectToProduct(res.data);
       }
     } catch {
-      // DocumentId lookup failed, proceed to slug/name/ID search
     }
 
-    // 2. Fallback: Search by numeric ID or by name/slug
+    
     try {
       const isNumeric = /^\d+$/.test(id);
       let filterParam = "";
@@ -73,7 +69,7 @@ export const httpProductsService: ProductsService = {
         return mapStrapiProjectToProduct(res.data[0]);
       }
     } catch {
-      // Query failed, return null
+      
     }
 
     return null;

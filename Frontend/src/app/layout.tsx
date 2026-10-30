@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Instrument_Serif, Manrope } from "next/font/google";
-import { Header } from "@/components/shared/Header";
 import { Providers } from "@/app/providers";
 import { Toaster } from "@/components/ui/Toaster";
 import "./globals.css";
@@ -11,15 +10,15 @@ const manrope = Manrope({ subsets: ["latin"], weight: ["400", "500", "600", "700
 const instrumentSerif = Instrument_Serif({ subsets: ["latin"], weight: "400", variable: "--font-instrument-serif" });
 
 export const metadata: Metadata = {
-  title: "Storefront",
-  description: "Browse products and manage a shopping cart.",
+  title: "O D O R A T U S",
+  description: "Browse products and manage your experience.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en" className={[geistSans.variable, geistMono.variable, manrope.variable, instrumentSerif.variable, "h-full antialiased"].join(" ")}>
       <body className="min-h-full bg-[#faf8f5] font-[family-name:var(--font-manrope)] text-[#1a1a1a]">
-        <Providers><Header /><main>{children}</main></Providers>
+        <Providers>{children}</Providers>
         <Toaster />
       </body>
     </html>

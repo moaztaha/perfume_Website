@@ -9,18 +9,19 @@ type ProductCompanionsProps = {
   category?: string;
 };
 
-/** Olfactory Companions (related products) section matching Figma specifications. */
+
 export function ProductCompanions({
   currentProductId,
   category,
 }: ProductCompanionsProps) {
-  // Query products with the same category relation from Strapi
+
+  
   const categoryQuery = useProducts({
     category: category || undefined,
     pageSize: 8,
   });
 
-  // Fallback query if no companion products in category
+  
   const fallbackQuery = useProducts({
     pageSize: 6,
   });

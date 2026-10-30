@@ -7,9 +7,7 @@ import { cartPaths } from "@/features/cart/paths";
 import { productPaths } from "@/features/products/paths";
 import { toast } from "@/lib/toast";
 
-// Replace with your actual WhatsApp business number (include country code without + or spaces)
-const WHATSAPP_NUMBER = "201156797613"; // Example: "201234567890" for Egypt
-
+const WHATSAPP_NUMBER = "201156797613"; 
 export function CheckoutPage() {
   const { lines, total } = useCart();
   const [formData, setFormData] = useState({
@@ -76,15 +74,15 @@ export function CheckoutPage() {
       return;
     }
     
-    // Build WhatsApp message
+    //  WhatsApp message
     const message = buildWhatsAppMessage();
     const encodedMessage = encodeURIComponent(message);
     const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMessage}`;
     
-    // Open WhatsApp
+  
     window.open(whatsappUrl, "_blank");
     
-    // Show success toast
+    
     toast.success("Opening WhatsApp", {
       description: "Complete your order via WhatsApp chat",
     });
@@ -97,7 +95,7 @@ export function CheckoutPage() {
     formData.city.trim() !== "" &&
     formData.postalCode.trim() !== "";
 
-  // If cart is empty, show empty state
+
   if (lines.length === 0) {
     return (
       <div className="min-h-screen bg-[#faf8f5]">
@@ -147,7 +145,7 @@ export function CheckoutPage() {
 
   return (
     <div className="min-h-screen bg-[#faf8f5]">
-      {/* Breadcrumbs */}
+     
       <nav
         aria-label="Breadcrumb"
         className="px-4 py-6 text-[12px] text-[#605a54] sm:px-6 lg:px-20"

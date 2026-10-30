@@ -20,7 +20,6 @@ export function ProductCard({ product }: ProductCardProps) {
   const { addItem } = useCart();
   const [isAdding, setIsAdding] = useState(false);
 
-  // معالجة الرابط وتحويل localhost إلى 127.0.0.1
   const rawImage = product.images[0];
   const formattedUrl = typeof rawImage === 'string' ? rawImage : (rawImage as any)?.url || '';
   const image = formattedUrl
@@ -39,7 +38,6 @@ export function ProductCard({ product }: ProductCardProps) {
         image,
         selectedOptions: {},
       });
-      // Brief delay for visual feedback
       await new Promise(resolve => setTimeout(resolve, 300));
     } finally {
       setIsAdding(false);
@@ -63,7 +61,7 @@ export function ProductCard({ product }: ProductCardProps) {
           <motion.div
             whileHover={{ scale: 1.05 }}
             transition={{ duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
-            className="size-full"
+            className="relative size-full"
           >
             {image ? (
               <Image

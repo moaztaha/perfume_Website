@@ -8,9 +8,8 @@ type ProductImagesProps = {
   product: Product;
 };
 
-/** US-04: product image gallery. */
+/* product image gallery. */
 export function ProductImages({ product }: ProductImagesProps) {
-  // معالجة الروابط وتحويل localhost إلى 127.0.0.1 لتجنب مشاكل الـ Next.js Image
 
   const rawImages = product.images.length > 0 ? product.images : [];
   const images = rawImages.map((img) => {
@@ -31,15 +30,15 @@ export function ProductImages({ product }: ProductImagesProps) {
     );
   }
 
-  // Current active image to display (defaulting to first image if selected is somehow invalid)
+  // Current active image to display 
   const currentImage = images.includes(selectedImage) ? selectedImage : images[0];
 
-  // Additional thumbnails (all images, or up to 3 thumbnails)
+  // Additional thumbnails 
   const thumbnails = images.length > 1 ? images.slice(1, 4) : [];
 
   return (
     <div className="flex flex-col gap-4 w-full">
-      {/* Main Image Viewport */}
+      {/* Image Viewport */}
       <div className="relative h-[420px] sm:h-[520px] lg:h-[600px] w-full overflow-hidden rounded-lg bg-[#ebe6de]">
         <Image
           src={currentImage}

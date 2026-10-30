@@ -4,7 +4,6 @@ type ToastOptions = ExternalToast & {
   duration?: number;
 };
 
-// Success toast with custom styling matching the design system
 export function toast(message: string, options?: ToastOptions) {
   return sonnerToast(message, {
     duration: 3000,

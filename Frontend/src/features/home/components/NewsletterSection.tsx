@@ -18,11 +18,10 @@ export function NewsletterSection() {
       return;
     }
 
-    // TODO: Implement newsletter signup
     console.log("Newsletter signup:", email);
 
     toast.promise(
-      // Simulate API call
+      //API call
       new Promise((resolve) => setTimeout(resolve, 1500)),
       {
         loading: "Subscribing...",

@@ -4,8 +4,8 @@ import { ScentArchetypesSectionSkeleton } from "@/features/home/components/Scent
 import { OccasionsSection } from "@/features/home/components/OccasionsSection";
 import { PromoBanner } from "@/features/home/components/PromoBanner";
 import { NewsletterSection } from "@/features/home/components/NewsletterSection";
-import { Footer } from "@/features/home/components/Footer";
 import { occasions, footerLinks } from "@/features/home/data/home-sections.data";
+import { Footer } from "@/components/shared/Footer";
 
 export default function HomeLoading() {
   return (

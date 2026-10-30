@@ -30,7 +30,7 @@ export function ProductSortControl({
     const newQuery = {
       ...currentQuery,
       sort: newSort === "featured" ? undefined : newSort,
-      page: 1, // Reset to page 1 when sort changes
+      page: 1, 
     };
     
     const queryString = buildProductQueryString(newQuery);
@@ -58,7 +58,7 @@ export function ProductSortControl({
             </option>
           ))}
         </select>
-        {/* eslint-disable-next-line @next/next/no-img-element */}
+        
         <img
           src="/icons/chevron-down.svg"
           alt=""

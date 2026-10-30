@@ -1,7 +1,4 @@
-/**
- * Public environment configuration.
- * Do not store secrets in NEXT_PUBLIC_* variables — they are exposed to the browser.
- */
+
 const rawUrl =
   process.env.NEXT_PUBLIC_STRAPI_URL ||
   process.env.NEXT_PUBLIC_API_BASE_URL ||
